@@ -1,17 +1,14 @@
 const { config } = require('dotenv')
 const {connect} = require('amqplib')
-
+require('dotenv').config()
 
 const createMessageChannel = async () => {
-    const AMQP_SERVER = "amqp://dev:devsenha@localhost:5672"
-    const QUEUE_NAME = "invites"
-    config()
 
     try {
-        const connection = await connect(AMQP_SERVER)
+        const connection = await connect(process.env.AMQP_SERVER)
         console.log("Rabbit Connected");
         const channel = await connection.createChannel()
-        await channel.assertQueue(QUEUE_NAME)
+        await channel.assertQueue(process.env.QUEUE_NAME)
         console.log("Queue created");
     } catch (error) {
         console.log('Error while trying to connect to RabbitMQ')
