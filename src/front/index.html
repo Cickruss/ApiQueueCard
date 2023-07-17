@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitaçã<option value=""></option></title>
+</head>
+
+<body>
+    <h1>Solicitação de Cartão</h1>
+    <form action="/" method="post">
+        <input type="number" name="agency" id="agency" placeholder="Agencia"> <br>
+        <input type="number" name="account" placeholder="Conta"><br>
+        <input type="number" name="cpf" placeholder="CPF"><br>
+        <input type="date" name="dateOfBirth"><br>
+        <input type="text" name="fullName" placeholder="Nome Completo"><br>
+        <select name="flag" id="flag"><br>
+            <option value="" disabled selected>Bandeira do Cartão</option>
+            <option value="visa">Visa</option>
+            <option value="mastercard">Mastercard</option>
+        </select><br>
+        <select name="type" id="type">
+            <option value="" disabled selected>Tipo do Cartão</option>
+            <option value="platinum">PLATINUM</option>
+            <option value="gold">GOLD</option>
+            <option value="blckDiamond">BLACK DIAMOND</option>
+        </select><br>
+        <select name="expirationDate" id="expirationDate">
+            <option value="" disabled selected>Data de Vencimento</option>
+            <option value="cinco">5</option>
+            <option value="dez">10</option>
+            <option value="quinze">15</option>
+            <option value="vinteECinco">25</option>
+        </select><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+
+</html>
