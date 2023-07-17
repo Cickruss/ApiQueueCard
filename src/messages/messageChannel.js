@@ -1,6 +1,6 @@
+require('dotenv').config()
 const { config } = require('dotenv')
 const {connect} = require('amqplib')
-require('dotenv').config()
 
 const createMessageChannel = async () => {
 
@@ -10,6 +10,8 @@ const createMessageChannel = async () => {
         const channel = await connection.createChannel()
         await channel.assertQueue(process.env.QUEUE_NAME)
         console.log("Queue created");
+
+        return channel
     } catch (error) {
         console.log('Error while trying to connect to RabbitMQ')
         console.log(error)
