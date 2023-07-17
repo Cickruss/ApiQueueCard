@@ -4,15 +4,21 @@ const express = require("express")
 const app = express()
 const createMessageChannel = require('./messages/messageChannel')
 
+const jsonTest = JSON.stringify({
+    "Agency": "0001",
+    "account": 10101,
+    "cpf" : 12122121,
+    "dateOfBirth": 12112003,
+    "fullName": "icaro macedo",
+    "flag": "Mastercard",
+    "type": "Platinum",
+    "expirationDate": 15
+})
 
-const CreateMessage = async () => {
+const CreateMessage = async (jsonTest) => {
 
     const messageChannel = await createMessageChannel()
-    const jsonTest = JSON.stringify({
-        "name": "Ícaro",
-        "age": 19,
-        "favoriteColor" : "Red"
-    })
+    
 
     if (messageChannel) {
         messageChannel.sendToQueue(process.env.QUEUE_NAME, Buffer.from(jsonTest))
@@ -20,7 +26,7 @@ const CreateMessage = async () => {
     }
 }
 
-CreateMessage()
+CreateMessage(jsonTest)
 
 
 

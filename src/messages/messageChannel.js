@@ -1,5 +1,4 @@
 require('dotenv').config()
-const { config } = require('dotenv')
 const {connect} = require('amqplib')
 
 const createMessageChannel = async () => {
