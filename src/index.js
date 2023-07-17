@@ -15,15 +15,15 @@ app.get('/', (req, res) => {
 app.post('/', (req,res) => {
 
     const card = JSON.stringify({
-        "Agency": req.body.agency,
-        "account": req.body.account,
-        "cpf" : req.body.cpf,
+        "Agency": parseInt(req.body.agency),
+        "account": parseInt(req.body.account),
+        "cpf" : parseInt(req.body.cpf),
         "dateOfBirth": req.body.dateOfBirth,
         "fullName": req.body.fullName,
         "nameForCard": CreateNameForCard(req.body.fullName),
         "flag": req.body.flag,
         "type": req.body.type,
-        "expirationDate": req.body.expirationDate
+        "expirationDate": parseInt(req.body.expirationDate)
     })
 
     console.log(card);
